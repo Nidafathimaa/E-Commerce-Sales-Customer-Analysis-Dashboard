@@ -84,30 +84,37 @@ Features:
  
 # Main DAX Measures
 🔹 Total Sales
-Total Sales = SUM(Sales[Sales])
+   - Total Sales = SUM(Sales[Sales])
+
 🔹 Total Profit
-Total Profit = SUM(Sales[Profit])
+   - Total Profit = SUM(Sales[Profit])
+
 🔹 Total Orders
-Total Orders = DISTINCTCOUNT(Sales[Order ID])
+   - Total Orders = DISTINCTCOUNT(Sales[Order ID])
+
 🔹 Profit Margin
-Profit Margin = DIVIDE([Total Profit], [Total Sales])
+   - Profit Margin = DIVIDE([Total Profit], [Total Sales])
+
 🔹 Avg Sales per Order
-Avg Sales per Order = DIVIDE([Total Sales], [Total Orders])
+   - Avg Sales per Order = DIVIDE([Total Sales], [Total Orders])
+
 🔹 YoY Growth %
-YoY Growth % =
-DIVIDE(
-    [Current Year Profit] - [Previous Year Profit],
-    [Previous Year Profit]
-)
+   - YoY Growth % =
+     DIVIDE(
+            [Current Year Profit] - [Previous Year Profit],
+            [Previous Year Profit]
+         )
+     
 🔹 Loss Products
-Loss Products =
-CALCULATE(
-    DISTINCTCOUNT(Products[Product Name]),
-    FILTER(
-        VALUES(Products[Product Name]),
-        [Total Profit] < 0
-    )
-)
+   - Loss Products =
+              CALCULATE(
+                       DISTINCTCOUNT(Products[Product Name]),
+                       FILTER(
+                             VALUES(Products[Product Name]),
+                                    [Total Profit] < 0
+                           )
+                       )
+
 
 # Power BI Features Used
 - KPI Cards
